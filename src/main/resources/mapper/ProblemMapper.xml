@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangx.oj.mapper.ProblemMapper">
+    <select id="findAll" resultType="com.wangx.oj.entity.Problem">
+        select * from t_problem;
+    </select>
+
+    <insert id="insertOne">
+        insert into t_problem (pid,tags,uid,title,description,samples,hint,language ,create_time,
+                               update_time, time_limit, memory_limit, test_case_id)
+               values (#{pid}, #{tags}, #{uid}, ${title}, #{description}, #{samples}, #{hint}, #{language}, #{createTime},
+                               #{updateTime}, #{timeLimit}, #{memoryLimit}, #{testCaseId} )
+    </insert>
+
+    <delete id="deleteOne">
+        delete from t_problem where pid = #{pid}
+    </delete>
+
+    <select id="findOne" resultType="com.wangx.oj.entity.Problem">
+        select * from t_problem where pid=#{pid}
+    </select>
+</mapper>

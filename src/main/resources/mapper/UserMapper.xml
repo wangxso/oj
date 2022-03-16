@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangx.oj.mapper.UserMapper">
+    <sql id="baseSql">
+        uid, username, password, email, tel, level, authority
+    </sql>
+    <insert id="InsertOne"
+            parameterType="com.wangx.oj.entity.User"
+            flushCache="true"
+    >
+        insert into t_user (uid, username, password, email, tel)
+            values (#{uid},#{username},#{password},#{email},#{tel})
+    </insert>
+
+    <select id="findAll" resultType="com.wangx.oj.entity.User">
+        select * from t_user;
+    </select>
+
+    <select id="findUserByUserName" resultType="com.wangx.oj.entity.User">
+        select * from t_user where username = #{username}
+    </select>
+
+    <select id="findUserById" resultType="com.wangx.oj.entity.User">
+        select * from t_user where uid = #{uid}
+    </select>
+
+
+
+</mapper>

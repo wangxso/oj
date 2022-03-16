@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangx.oj.mapper.TestCaseMapper">
+    <select id="findOneByPid">
+        select * from t_testcase where tid = #{tid}
+    </select>
+
+    <insert id="addOne">
+        insert into t_testcase(pid, input, output)
+        values (#{pid}, #{input}, #{output})
+    </insert>
+
+</mapper>

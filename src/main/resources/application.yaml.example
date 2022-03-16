@@ -1,0 +1,79 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url:
+    username:
+    password:
+    driverClassName: com.mysql.cj.jdbc.Driver
+  application:
+    name: spirng-boot-rabbitmq-sender
+  rabbitmq:
+    host:
+    port: 5672
+    username:
+    password:
+    virtual-host: /
+    connection-timeout: 15000
+    publisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        acknowledge-mode: auto
+        concurrency: 1
+        max-concurrency: 1
+        retry:
+          enabled: true
+  redis:
+    database: 0
+    host:
+    port:
+    password:
+    jedis:
+      pool:
+        max-active: 200
+        max-wait: -1
+        max-idle: 10
+        min-idle: 0
+    timeout: 5000
+logging:
+  file:
+    path: "./logs"
+    max-history: 30
+    max-size: 15MB
+  pattern:
+    file: "oj.%d{yyyy-MM-dd}.log"
+mybatis-plus:
+  field-strategy: 1
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      #驼峰下划线转换
+      column-underline: true
+      #逻辑删除配置
+      logic-delete-value: 0 # 0为删除
+      logic-not-delete-value: 1 # 1为未删除
+      db-type: mysql
+    refresh: false
+
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+  mapper-locations: /mapper/*.xml
+  type-aliases-package: com.wangx.oj.entity
+sms:
+  accesskey-id:
+  accesskey-secret:
+  sign-name:
+  template-code:
+aliyun:
+  oss:
+    endpoint:
+    accessKeyId:
+    accessKeySecret:
+    bucketName:
+
+
+
