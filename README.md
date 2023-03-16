@@ -14,9 +14,9 @@ This is a backend implementation for an online judge system built using SpringBo
 1. Copy the `application.yaml.example` file to `application.yaml`.
 2. Modify the `application.yaml` file with the appropriate configurations for your system.
 3. Run the following command to start the application:
-```bash
-java -jar oj-0.0.1-SNAPSHOT.jar
-```
+  ```bash
+  java -jar oj-0.0.1-SNAPSHOT.jar
+  ```
 4. Once the application is running, you can access it at `http://localhost:8080`.
 ## Dependencies
 - Frontend: https://github.com/wangxso/onlinejudge-FE
